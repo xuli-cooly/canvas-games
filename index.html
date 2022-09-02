@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美杜莎养成史</title>
+    <style>
+			body {
+				background-color: #eee;
+			}
+			.container {
+				position: relative;
+				max-width: 450px;
+				margin: 20px auto;
+				text-align: center;
+				background-image: url(./src/assets/bgc.jpg);
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.score-text {
+				position: absolute;
+				right: 10px;
+			}
+			.action {
+				margin: 10px;
+			}
+			.view {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 347px;
+				height: 452px;
+			}
+			#snake {
+				border: 1px solid #000;
+				width: 340px;
+				height: 450px;
+				display: inline-block;
+				z-index: 9;
+				background: linear-gradient(to right, rgba(87, 180, 220, 0.932), rgba(12, 50, 67, 0.932));
+			}
+			.mask {
+				background: linear-gradient(to right, rgba(87, 180, 220, 0.932), rgba(12, 50, 67, 0.932));
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 99;
+				display: block;
+				color: rgba(14, 227, 60, 0.829);
+				line-height: 450px;
+				text-align: center;
+				font-size: 30px;
+			}
+
+			.mask > span {
+				cursor: pointer;
+				filter: brightness(4.5);
+			}
+
+			.mask > span:hover {
+				filter: brightness(1.5);
+			}
+
+			button {
+				width: 80px;
+				height: 43px;
+				border: none;
+				border-radius: 10px;
+				color: #eee;
+				margin-bottom: 10px;
+			}
+
+			button:hover {
+				cursor: pointer;
+				filter: blur(0.4px);
+			}
+
+			.restart {
+				margin-top: 6px;
+				background-color: rgba(9, 148, 67, 0.829);
+			}
+
+			.stop {
+				background-color: rgba(6, 40, 107, 0.829);
+			}
+
+			.continue {
+				background-color: rgba(157, 24, 135, 0.829);
+			}
+
+			.direction {
+				margin-top: 470px;
+			}
+
+			.direction > button, .direction-x > button {
+				width: 150px;
+				background-color: rgba(0,0,0,0.7);
+				color: rgba(255,255,255,.3);
+			}
+		</style>
+</head>
+<body>
+    <div class="container">
+      <div class="score-text">Score: <span class="score">0</span></div>
+      <div class="action">
+			<button class="restart">重新开始</button>
+			<div>
+				<button class="stop">暂停</button>
+				<button class="continue">继续</button>
+			</div>
+        </div>
+        <div class="view">
+          <canvas id="snake" width="340" height="450"></canvas>
+          <div class="mask"><span class="mask-text">美杜莎养成 let's go</span></div>
+        </div>
+			<div class="direction">
+				<button class="up-btn">Up</button>
+				<div class="direction-x">
+					<button class="left-btn">Left</button>
+					<button class="right-btn">Right</button>
+				</div>
+				<button class="down-btn">Down</button>
+			</div>
+    </div>
+
+    <script src="./src/snake.js"></script>
+</body>
+</html>
